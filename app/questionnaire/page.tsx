@@ -25,13 +25,21 @@ export default function Questionnaire() {
           </button>
         ))}
       </div>
-      {selected === 1 && (
-        <p className="absolute top-1/2 mt-20 text-sm text-gray-400 max-w-md text-center">
-          Note: Working out 1 day a week will limit your weekly volume, which is
-          the main driver of muscle growth. However, 1 day a week in the gym is
-          infinitely better than 7 days on your couch.
-        </p>
-      )}
+
+      <div className="absolute top-2/3 flex flex-col items-center gap-4">
+        {selected > 0 && (
+          <button className="bg-sky-500 hover:bg-sky-400 active:scale-95 transition font-semibold rounded-lg px-6 py-3 text-white">
+            Confirm
+          </button>
+        )}
+        {selected === 1 && (
+          <p className="text-sm text-gray-400 max-w-md text-center">
+            Note: Working out 1 day a week will limit your weekly volume, which
+            is the main driver of muscle growth. However, 1 day a week in the
+            gym is infinitely better than 7 days on your couch.
+          </p>
+        )}
+      </div>
     </main>
   );
 }
