@@ -6,7 +6,7 @@ export default function Questionnaire() {
   const [selected, setSelected] = useState(0);
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen gap-6 bg-gray-950">
+    <main className="relative flex flex-col items-center justify-center min-h-screen gap-6 bg-gray-950">
       <h1 className="text-3xl font-bold text-white">
         How many days a week can you work out?
       </h1>
@@ -25,6 +25,13 @@ export default function Questionnaire() {
           </button>
         ))}
       </div>
+      {selected === 1 && (
+        <p className="absolute top-1/2 mt-20 text-sm text-gray-400 max-w-md text-center">
+          Note: Working out 1 day a week will limit your weekly volume, which is
+          the main driver of muscle growth. However, 1 day a week in the gym is
+          infinitely better than 7 days on your couch.
+        </p>
+      )}
     </main>
   );
 }
