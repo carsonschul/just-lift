@@ -30,7 +30,6 @@ export default function Questionnaire() {
               </button>
             ))}
           </div>
-
           <div className="absolute top-2/3 flex flex-col items-center gap-4">
             {daysSelected > 0 && (
               <button
@@ -70,7 +69,20 @@ export default function Questionnaire() {
               </button>
             ))}
           </div>
+          <div className="absolute top-2/3 flex flex-col items-center gap-4">
+            {timeSelected > 0 && (
+              <button
+                onClick={() => setStep(3)}
+                className="bg-sky-500 hover:bg-sky-400 active:scale-95 transition font-semibold rounded-lg px-6 py-3 text-white"
+              >
+                Confirm
+              </button>
+            )}
+          </div>
         </>
+      )}
+      {step === 3 && (
+        <h1 className="text-3xl font-bold text-white">Your plan goes here.</h1>
       )}
     </main>
   );
