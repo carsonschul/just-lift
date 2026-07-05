@@ -3,8 +3,10 @@ import { useState } from "react";
 
 export default function Questionnaire() {
   const days = [1, 2, 3, 4, 5, 6];
+  const time = [30, 45, 60, 90];
   const [daysSelected, setDaysSelected] = useState(0);
   const [step, setStep] = useState(1);
+  const [timeSelected, setTimeSelected] = useState(0);
 
   return (
     <main className="relative flex flex-col items-center justify-center min-h-screen gap-6 bg-gray-950">
@@ -49,9 +51,26 @@ export default function Questionnaire() {
         </>
       )}
       {step === 2 && (
-        <h1 className="text-3xl font-bold text-white">
-          How long can your sessions be?
-        </h1>
+        <>
+          <h1 className="text-3xl font-bold text-white">
+            How long can your sessions be?
+          </h1>
+          <div className="flex gap-3">
+            {time.map((t) => (
+              <button
+                key={t}
+                onClick={() => setTimeSelected(t)}
+                className={
+                  t === timeSelected
+                    ? "bg-sky-500 text-white px-5 py-3 rounded-lg active:scale-95 transition"
+                    : "bg-gray-800 text-white px-5 py-3 rounded-lg hover:bg-gray-700 active:scale-95 transition"
+                }
+              >
+                {t === 90 ? `${t}+ min` : `${t} min`}
+              </button>
+            ))}
+          </div>
+        </>
       )}
     </main>
   );
